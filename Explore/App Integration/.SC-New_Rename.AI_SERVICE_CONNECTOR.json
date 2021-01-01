@@ -1,0 +1,24 @@
+[
+   {
+      "objectGuid": "72pHa6Hoe80esziKW5M9Ql",
+      "objectName": "SC-New_Rename",
+      "objectType": "AI_SERVICE_CONNECTOR",
+      "path": "/Explore/App Integration",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "UJsJGD4ARW8UBM7-gt-9418995-2020-10-13T07:58:54.745Z::svc.xml"
+         }
+      }
+   }
+]
