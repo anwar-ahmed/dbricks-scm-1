@@ -1,0 +1,24 @@
+[
+   {
+      "objectGuid": "9njTEPd9SRLeNB8lpAgkY4",
+      "objectName": "SC_Petstore",
+      "objectType": "AI_SERVICE_CONNECTOR",
+      "path": "/Explore/App Integration",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "lk8lwnHUPAZf5kc-gt-2653201-2020-10-26T09:14:44.178Z::svc.xml"
+         }
+      }
+   }
+]

@@ -1,0 +1,22 @@
+[
+   {
+      "objectGuid": "cdzwd5n20oNh0YSLaC9YAB",
+      "objectName": "App Integration",
+      "objectType": "Project",
+      "path": "/Explore",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "Binary",
+            "description": "",
+            "documentState": "COMPLETE"
+         },
+         "contextAttributes": [],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": null
+      }
+   }
+]

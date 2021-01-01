@@ -1,0 +1,49 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>t6qhGKcn8dzWztZ-gt-5177541-2020-10-26T09:18:01.315Z::conn.xml</types1:EntryId>
+      <types1:Name>AC-PetStore</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anwar.ahmed2@wipro.com</types1:CreatedBy>
+      <types1:CreationDate>2020-10-26T09:18:01Z</types1:CreationDate>
+      <types1:ModifiedBy>anwar.ahmed2@wipro.com</types1:ModifiedBy>
+      <types1:ModificationDate>2020-10-26T09:21:45Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anwar.ahmed2@wipro.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-10-26T09:22:41Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/AC-PetStore/AC-PetStore.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="AC-PetStore"
+                     label="AC-PetStore"
+                     name="AC-PetStore">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false" name="hostName" value="petstore.swagger.io"/>
+               <attribute encrypted="true" name="api_key" value=""/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/SC_Petstore/SC_Petstore_svcDef.xml"
+                               guid="9njTEPd9SRLeNB8lpAgkY4"
+                               name="SC_Petstore"
+                               supportsConnectionTest="false"
+                               uuid="dd730117-d765-48b5-bb56-d941c9c138eb">
+               <description>This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>1jTl8IJDoB5i56OYnre6ey</types1:GUID>
+      <types1:DisplayName>AC-PetStore</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-01-01T10:40:40.444Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

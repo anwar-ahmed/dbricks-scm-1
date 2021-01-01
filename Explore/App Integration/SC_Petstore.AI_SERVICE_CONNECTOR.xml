@@ -1,0 +1,911 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>lk8lwnHUPAZf5kc-gt-2653201-2020-10-26T09:14:44.178Z::svc.xml</types1:EntryId>
+      <types1:Name>SC_Petstore</types1:Name>
+      <types1:ParentFlowIds>t6qhGKcn8dzWztZ-gt-5177541-2020-10-26T09:18:01.315Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anwar.ahmed2@wipro.com</types1:CreatedBy>
+      <types1:CreationDate>2020-10-26T09:14:44Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anwar.ahmed2@wipro.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-10-26T09:15:33Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SC_Petstore/SC_Petstore_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SC_Petstore"
+                            label=""
+                            name="SC_Petstore"
+                            uuid="dd730117-d765-48b5-bb56-d941c9c138eb">
+            <description>This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description="Host Name"
+                                    masked="false"
+                                    name="hostName"
+                                    required="true"
+                                    testWith="petstore.swagger.io"
+                                    type="string"/>
+               <connectionAttribute description="API Key"
+                                    masked="true"
+                                    name="api_key"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category="pet"
+                       failOnError="true"
+                       forSearch="false"
+                       label="addPet"
+                       maxRedirects="100"
+                       name="addPet"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Add a new pet to the store</description>
+                  <input>
+                     <parameter description="Pet object that needs to be added to the store"
+                                label="body"
+                                name="body"
+                                required="true"
+                                testWith=""
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">Pet</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/pet"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="pet"
+                       failOnError="true"
+                       forSearch="false"
+                       label="updatePet"
+                       maxRedirects="100"
+                       name="updatePet"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Update an existing pet</description>
+                  <input>
+                     <parameter description="Pet object that needs to be added to the store"
+                                label="body"
+                                name="body"
+                                required="true"
+                                testWith=""
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">Pet</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/pet"
+                                        verb="PUT">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="user"
+                       failOnError="true"
+                       forSearch="false"
+                       label="getUserByName"
+                       maxRedirects="100"
+                       name="getUserByName"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Get user by user name</description>
+                  <input>
+                     <parameter description="The name that needs to be fetched. Use user1 for testing. "
+                                label="usernamePathParam"
+                                name="usernamePathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/user/{$usernamePathParam}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation"
+                            entireResponse="true"
+                            name="User"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">User</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+               <action category="user"
+                       failOnError="true"
+                       forSearch="false"
+                       label="deleteUser"
+                       maxRedirects="100"
+                       name="deleteUser"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Delete user. This can only be done by the logged in user.</description>
+                  <input>
+                     <parameter description="The name that needs to be deleted"
+                                label="usernamePathParam"
+                                name="usernamePathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/user/{$usernamePathParam}"
+                                        verb="DELETE">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="user"
+                       failOnError="true"
+                       forSearch="false"
+                       label="updateUser"
+                       maxRedirects="100"
+                       name="updateUser"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Updated user. This can only be done by the logged in user.</description>
+                  <input>
+                     <parameter description="name that need to be updated"
+                                label="usernamePathParam"
+                                name="usernamePathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="string"/>
+                     <parameter description="Updated user object"
+                                label="body"
+                                name="body"
+                                required="true"
+                                testWith=""
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">User</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/user/{$usernamePathParam}"
+                                        verb="PUT">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="pet"
+                       failOnError="true"
+                       forSearch="false"
+                       label="findPetsByStatus"
+                       maxRedirects="100"
+                       name="findPetsByStatus"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Finds Pets by status. Multiple status values can be provided with comma separated strings</description>
+                  <input>
+                     <parameter description="Status values that need to be considered for filter"
+                                label="status"
+                                name="status"
+                                required="true"
+                                testWith=""
+                                type="multipicklist">
+                        <options>
+                           <option name="values">[{"value":"available","label":"available"},{"value":"pending","label":"pending"},{"value":"sold","label":"sold"}]</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/pet/findByStatus"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation" name="PetList" type="objectlist">
+                        <options>
+                           <option name="referenceTo">Pet</option>
+                        </options>
+                        <xquery>{
+                             (: unwrap the object list from the root wrapper :)
+                             for $child in ./*
+                             return
+                                element {'Pet'} { $child/* }
+                             }</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category="user"
+                       failOnError="true"
+                       forSearch="false"
+                       label="createUsersWithListInput"
+                       maxRedirects="100"
+                       name="createUsersWithListInput"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Creates list of users with given input array</description>
+                  <input>
+                     <parameter description="List of user object"
+                                label="body"
+                                name="body"
+                                required="true"
+                                testWith=""
+                                type="objectlist">
+                        <options>
+                           <option name="referenceTo">User</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/user/createWithList"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="pet"
+                       failOnError="true"
+                       forSearch="false"
+                       label="uploadFile"
+                       maxRedirects="100"
+                       name="uploadFile"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>uploads an image</description>
+                  <input>
+                     <parameter description="ID of pet to update"
+                                label="petIdPathParam"
+                                name="petIdPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="int"/>
+                     <parameter description="Additional data to pass to server"
+                                label="additionalMetadata"
+                                name="additionalMetadata"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description="file to upload"
+                                label="file"
+                                name="file"
+                                required="false"
+                                testWith=""
+                                type="attachment"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/pet/{$petIdPathParam}/uploadImage"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">multipart/form-data</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="JSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation"
+                            entireResponse="true"
+                            name="ApiResponse"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">ApiResponse</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+               <action category="store"
+                       failOnError="true"
+                       forSearch="false"
+                       label="getInventory"
+                       maxRedirects="100"
+                       name="getInventory"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Returns pet inventories by status. Returns a map of status codes to quantities</description>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/store/inventory"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation"
+                            entireResponse="true"
+                            name="entireResponse"
+                            type="object"/>
+                  </output>
+               </action>
+               <action category="user"
+                       failOnError="true"
+                       forSearch="false"
+                       label="loginUser"
+                       maxRedirects="100"
+                       name="loginUser"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Logs user into the system</description>
+                  <input>
+                     <parameter description="The user name for login"
+                                label="username"
+                                name="username"
+                                required="true"
+                                testWith=""
+                                type="string"/>
+                     <parameter description="The password for login in clear text"
+                                label="password"
+                                name="password"
+                                required="true"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/user/login"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation"
+                            entireResponse="true"
+                            name="entireResponse"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category="user"
+                       failOnError="true"
+                       forSearch="false"
+                       label="createUser"
+                       maxRedirects="100"
+                       name="createUser"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Create user. This can only be done by the logged in user.</description>
+                  <input>
+                     <parameter description="Created user object"
+                                label="body"
+                                name="body"
+                                required="true"
+                                testWith=""
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">User</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/user"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="user"
+                       failOnError="true"
+                       forSearch="false"
+                       label="createUsersWithArrayInput"
+                       maxRedirects="100"
+                       name="createUsersWithArrayInput"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Creates list of users with given input array</description>
+                  <input>
+                     <parameter description="List of user object"
+                                label="body"
+                                name="body"
+                                required="true"
+                                testWith=""
+                                type="objectlist">
+                        <options>
+                           <option name="referenceTo">User</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/user/createWithArray"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="pet"
+                       failOnError="true"
+                       forSearch="false"
+                       label="findPetsByTags"
+                       maxRedirects="100"
+                       name="findPetsByTags"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Finds Pets by tags. Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.</description>
+                  <input>
+                     <parameter description="Tags to filter by"
+                                label="tags"
+                                name="tags"
+                                required="true"
+                                testWith=""
+                                type="objectlist">
+                        <options>
+                           <option name="referenceTo">string</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/pet/findByTags"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation" name="PetList" type="objectlist">
+                        <options>
+                           <option name="referenceTo">Pet</option>
+                        </options>
+                        <xquery>{
+                             (: unwrap the object list from the root wrapper :)
+                             for $child in ./*
+                             return
+                                element {'Pet'} { $child/* }
+                             }</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category="store"
+                       failOnError="true"
+                       forSearch="false"
+                       label="placeOrder"
+                       maxRedirects="100"
+                       name="placeOrder"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Place an order for a pet</description>
+                  <input>
+                     <parameter description="order placed for purchasing the pet"
+                                label="body"
+                                name="body"
+                                required="true"
+                                testWith=""
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">Order</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/store/order"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation"
+                            entireResponse="true"
+                            name="Order"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">Order</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+               <action category="user"
+                       failOnError="true"
+                       forSearch="false"
+                       label="logoutUser"
+                       maxRedirects="100"
+                       name="logoutUser"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Logs out current logged in user session</description>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/user/logout"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="pet"
+                       failOnError="true"
+                       forSearch="false"
+                       label="updatePetWithForm"
+                       maxRedirects="100"
+                       name="updatePetWithForm"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Updates a pet in the store with form data</description>
+                  <input>
+                     <parameter description="ID of pet that needs to be updated"
+                                label="petIdPathParam"
+                                name="petIdPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="int"/>
+                     <parameter description="Updated name of the pet"
+                                label="name"
+                                name="name"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description="Updated status of the pet"
+                                label="status"
+                                name="status"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/pet/{$petIdPathParam}"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="Form"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="pet"
+                       failOnError="true"
+                       forSearch="false"
+                       label="getPetById"
+                       maxRedirects="100"
+                       name="getPetById"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Find pet by ID. Returns a single pet</description>
+                  <input>
+                     <parameter description="ID of pet to return"
+                                label="petIdPathParam"
+                                name="petIdPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="int"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/pet/{$petIdPathParam}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation"
+                            entireResponse="true"
+                            name="Pet"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">Pet</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+               <action category="pet"
+                       failOnError="true"
+                       forSearch="false"
+                       label="deletePet"
+                       maxRedirects="100"
+                       name="deletePet"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Deletes a pet</description>
+                  <input>
+                     <parameter label="api_key"
+                                name="api_key"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description="Pet id to delete"
+                                label="petIdPathParam"
+                                name="petIdPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="int"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/pet/{$petIdPathParam}"
+                                        verb="DELETE">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="api_key">{$api_key}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="store"
+                       failOnError="true"
+                       forSearch="false"
+                       label="getOrderById"
+                       maxRedirects="100"
+                       name="getOrderById"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Find purchase order by ID. For valid response try integer IDs with value &gt;= 1 and &lt;= 10. Other values will generated exceptions</description>
+                  <input>
+                     <parameter description="ID of pet that needs to be fetched"
+                                label="orderIdPathParam"
+                                name="orderIdPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="int"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/store/order/{$orderIdPathParam}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="successful operation"
+                            entireResponse="true"
+                            name="Order"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">Order</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+               <action category="store"
+                       failOnError="true"
+                       forSearch="false"
+                       label="deleteOrder"
+                       maxRedirects="100"
+                       name="deleteOrder"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Delete purchase order by ID. For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors</description>
+                  <input>
+                     <parameter description="ID of the order that needs to be deleted"
+                                label="orderIdPathParam"
+                                name="orderIdPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="int"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/v2/store/order/{$orderIdPathParam}"
+                                        verb="DELETE">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Order">
+                  <description/>
+                  <detail>
+                     <field name="petId" type="int"/>
+                     <field name="quantity" type="int"/>
+                     <field name="id" type="int"/>
+                     <field name="shipDate" type="datetime"/>
+                     <field name="complete" type="boolean"/>
+                     <field name="status" type="picklist">
+                        <options>
+                           <option name="values">[{"value":"placed","label":"placed"},{"value":"approved","label":"approved"},{"value":"delivered","label":"delivered"}]</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Category">
+                  <description/>
+                  <detail>
+                     <field name="name" type="string"/>
+                     <field name="id" type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="User">
+                  <description/>
+                  <detail>
+                     <field name="lastName" type="string"/>
+                     <field name="firstName" type="string"/>
+                     <field name="password" type="string"/>
+                     <field name="userStatus" type="int"/>
+                     <field name="phone" type="string"/>
+                     <field name="id" type="int"/>
+                     <field name="email" type="string"/>
+                     <field name="username" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Tag">
+                  <description/>
+                  <detail>
+                     <field name="name" type="string"/>
+                     <field name="id" type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="ApiResponse">
+                  <description/>
+                  <detail>
+                     <field name="code" type="int"/>
+                     <field name="type" type="string"/>
+                     <field name="message" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Pet">
+                  <description/>
+                  <detail>
+                     <field name="photoUrls" type="objectlist">
+                        <options>
+                           <option name="referenceTo">string</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="name" type="string"/>
+                     <field name="id" type="int"/>
+                     <field name="category" type="reference">
+                        <options>
+                           <option name="referenceTo">Category</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="tags" type="objectlist">
+                        <options>
+                           <option name="referenceTo">Tag</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="status" type="picklist">
+                        <options>
+                           <option name="values">[{"value":"available","label":"available"},{"value":"pending","label":"pending"},{"value":"sold","label":"sold"}]</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="string">
+                  <description/>
+                  <detail>
+                     <field name="string" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="boolean">
+                  <description/>
+                  <detail>
+                     <field name="boolean" type="boolean"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="double">
+                  <description/>
+                  <detail>
+                     <field name="double" type="double"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="integer">
+                  <description/>
+                  <detail>
+                     <field name="integer" type="int"/>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>9njTEPd9SRLeNB8lpAgkY4</types1:GUID>
+      <types1:DisplayName>SC_Petstore</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-01-01T10:40:39.679Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
